@@ -81,16 +81,23 @@ namespace Importing_Scaling_and_Randomization
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
 
-            //_spriteBatch.Draw(backgroundTexture, backgroundRect, Color.White);
-            //_spriteBatch.DrawString(titleFont, "Space", new Vector2(300, 10), Color.Yellow);
+
+            _spriteBatch.Draw(backgroundTexture, backgroundRect, Color.White);
+            _spriteBatch.DrawString(titleFont, "Space", new Vector2(300, 10), Color.Yellow);
+
             // Basic Draw
             _spriteBatch.Draw(shipTexture, shipRect, Color.White);
 
-            // Rotates a texture about its center
-            _spriteBatch.Draw(shipTexture, shipRect, null, Color.White, angle, new Vector2(shipTexture.Width / 2, shipTexture.Height / 2), SpriteEffects.None, 1f);
+            // Basic draw at 40% opacity
+            //_spriteBatch.Draw(shipTexture, shipRect, Color.White * 0.4f);
+
+            // Rotates a texture about its top left
             //_spriteBatch.Draw(shipTexture, shipRect, null, Color.White, 1f, new Vector2(0, 0), SpriteEffects.None, 1f);
 
-            // Flips a texture
+            // Rotates a texture about its center
+            _spriteBatch.Draw(shipTexture, shipRect, null, Color.White, angle, new Vector2(shipTexture.Width / 2, shipTexture.Height / 2), SpriteEffects.None, 1f);
+
+            // Flips a texture vertically (since the ships are semetrical, flipping hrisontally will have no visible effect)
             //_spriteBatch.Draw(shipTexture, shipRect, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipVertically, 1f);
             _spriteBatch.End();
 
