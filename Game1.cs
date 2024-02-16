@@ -61,6 +61,8 @@ namespace Importing_Scaling_and_Randomization
             shipTextures = new List<Texture2D>();
             for (int i = 1; i <= 5; i++)
                 shipTextures.Add(Content.Load<Texture2D>("Images/enterprise_" + i));
+
+            // Grabs a random ship to draw
             shipTexture = shipTextures[generator.Next(shipTextures.Count)];
         }
 
@@ -81,7 +83,6 @@ namespace Importing_Scaling_and_Randomization
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
 
-
             _spriteBatch.Draw(backgroundTexture, backgroundRect, Color.White);
             _spriteBatch.DrawString(titleFont, "Space", new Vector2(300, 10), Color.Yellow);
 
@@ -97,8 +98,9 @@ namespace Importing_Scaling_and_Randomization
             // Rotates a texture about its center
             _spriteBatch.Draw(shipTexture, shipRect, null, Color.White, angle, new Vector2(shipTexture.Width / 2, shipTexture.Height / 2), SpriteEffects.None, 1f);
 
-            // Flips a texture vertically (since the ships are semetrical, flipping hrisontally will have no visible effect)
+            // Flips a texture vertically (since the ships are symmetrical, flipping horizontally will have no visible effect)
             //_spriteBatch.Draw(shipTexture, shipRect, null, Color.White, 0f, new Vector2(0, 0), SpriteEffects.FlipVertically, 1f);
+            
             _spriteBatch.End();
 
             base.Draw(gameTime);
